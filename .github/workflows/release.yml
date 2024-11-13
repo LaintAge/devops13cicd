@@ -42,4 +42,4 @@ jobs:
           git config --global user.name 'LaintAge'
           git config --global user.email 'roma752275@mail.ru'
           git commit -am "Release"
-          git push --force origin master:release
+          git push --force origin main:release
