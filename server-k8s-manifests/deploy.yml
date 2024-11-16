@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-psu
+  labels:
+    app: devops-psu
+    release-date: RELEASE-DATE
+  namespace: devops-psu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-psu
+  template:
+    metadata:
+      labels:
+        app: devops-psu
+        svc: frontend
+        release-date: RELEASE-DATE
+    spec:
+      containers:
+      - name: devops-psu-server
+        image: laintage/devops-psu:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
